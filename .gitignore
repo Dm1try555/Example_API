@@ -5,5 +5,4 @@ __pycache__/
 .idea/
 *.sqlite3
 venv/
-
-.migrations/
+/migrations/
