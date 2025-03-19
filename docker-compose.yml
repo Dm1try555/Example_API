@@ -16,11 +16,11 @@ services:
       - redis
       - minio
     environment:
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_NAME=user
-      - DB_USER=root
-      - DB_PASSWORD=password
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
     command: python manage.py runserver 0.0.0.0:8000
 
   db:
@@ -30,8 +30,8 @@ services:
     networks:
       - app-network
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE=${MYSQL_DATABASE}
     ports:
       - "3307:3306"
 
@@ -42,8 +42,8 @@ services:
     networks:
       - app-network
     environment:
-      MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: minio123
+      MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
     command: server /data
     ports:
       - "9000:9000"
