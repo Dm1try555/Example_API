@@ -30,8 +30,8 @@ services:
     networks:
       - app-network
     environment:
-      MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE=${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
       - "3307:3306"
 
@@ -42,8 +42,8 @@ services:
     networks:
       - app-network
     environment:
-      MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
-      MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
     command: server /data
     ports:
       - "9000:9000"
