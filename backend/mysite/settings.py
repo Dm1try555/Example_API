@@ -67,8 +67,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',       # Имя вашей базы данных
+        'USER': 'root',       # Имя пользователя
+        'PASSWORD': 'rootpassword',   # Пароль
+        'HOST': 'db',               # Хост (в Docker используйте имя сервиса из docker-compose)
+        'PORT': '3306',                # Порт MySQL (обычно 3306)
+        'OPTIONS': {
+            'charset': 'utf8mb4',      # Указываем корректную кодировку
+        },
     }
 }
 
